@@ -19,6 +19,7 @@ const Home = () => {
       const res = await fetch(
         `https://jsonplaceholder.typicode.com/posts?_limit=9&_page=${page}`
       );
+      console.log(res);
       const data: Movie[] = await res.json();
       setCard((prev) => [...prev, ...data]);
       setLoading(false);
