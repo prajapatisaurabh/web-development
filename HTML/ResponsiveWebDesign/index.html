@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        font-family: monospace;
+      }
+      .header {
+        height: 100px;
+        background-color: blueviolet;
+        padding: 15px;
+      }
+      .row {
+        display: flex;
+      }
+
+      .col {
+        flex: 1;
+        margin: 10px;
+      }
+
+      li {
+        color: #fff;
+        text-decoration: none;
+        background-color: red;
+        margin: 10px;
+        padding: 10px;
+        width: 220px;
+      }
+
+      .second > h2 {
+        font-size: 25px;
+      }
+      .second > p {
+        font-size: 14px;
+      }
+      .second {
+        padding: 15px;
+      }
+
+      .third > h2 {
+        font-size: 20px;
+      }
+      .third {
+        text-align: center;
+        padding-left: 5px;
+        padding-right: 5px;
+        color: #fff;
+      }
+      .footer {
+        text-align: center;
+        background-color: aqua;
+        height: 50px;
+        padding: 5px;
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      @media (max-width: 600px) {
+        .row {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h2>Header</h2>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <ul>
+          <li>The Flight</li>
+          <li>The City</li>
+          <li>The Islan</li>
+          <li>The Food</li>
+        </ul>
+      </div>
+      <div class="col second">
+        <h2>The City</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, sed
+          aspernatur explicabo facere pariatur eum sequi accusantium corporis
+          odio, tenetur possimus nesciunt quibusdam ducimus, ullam delectus
+          vitae velit itaque omnis.
+        </p>
+      </div>
+      <div class="col third" style="background-color: #06c5f3">
+        <h2>What?</h2>
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, quo!
+        </p>
+        <h2>Where?</h2>
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, quo!
+        </p>
+        <h2>How?</h2>
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, quo!
+        </p>
+      </div>
+    </div>
+    <div class="footer">
+      <p>Lorem ipsum dolor sit, amet consectetur adipisicing. 2023</p>
+    </div>
+  </body>
+</html>
