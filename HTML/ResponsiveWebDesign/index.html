@@ -7,62 +7,146 @@
     <style>
       * {
         box-sizing: border-box;
-        font-family: monospace;
       }
+      .row::after {
+        content: "";
+        clear: both;
+        display: table;
+      }
+
+      h2 {
+        color: coral;
+        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+      }
+      [class*="col-"] {
+        width: 100%;
+        float: left;
+        padding: 15px;
+      }
+
+      html {
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+      }
+
       .header {
-        height: 100px;
-        background-color: blueviolet;
-        padding: 15px;
-      }
-      .row {
-        display: flex;
-      }
-
-      .col {
-        flex: 1;
-        margin: 10px;
-      }
-
-      li {
-        color: #fff;
-        text-decoration: none;
-        background-color: red;
-        margin: 10px;
-        padding: 10px;
-        width: 220px;
-      }
-
-      .second > h2 {
-        font-size: 25px;
-      }
-      .second > p {
-        font-size: 14px;
-      }
-      .second {
+        background-color: #9933cc;
+        color: #ffffff;
         padding: 15px;
       }
 
-      .third > h2 {
-        font-size: 20px;
+      .manu ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
       }
-      .third {
+
+      .manu li {
+        padding: 8px;
+        margin-bottom: 7px;
+        background-color: #33b5e5;
+        color: #ffffff;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+      }
+
+      .aside {
+        background-color: #33b5e5;
+        padding: 15px;
+        color: #ffffff;
         text-align: center;
-        padding-left: 5px;
-        padding-right: 5px;
-        color: #fff;
+        font-size: 14px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
       }
+
       .footer {
+        background-color: #0099cc;
+        color: #ffffff;
         text-align: center;
-        background-color: aqua;
-        height: 50px;
-        padding: 5px;
-        font-size: 14px;
-        font-weight: bold;
+        font-size: 13px;
+        padding: 15px;
       }
 
-      @media (max-width: 600px) {
-        .row {
-          flex-direction: column;
+      .manu li:hover {
+        background-color: #0099cc;
+      }
+
+      @media only screen and (min-width: 600px) {
+        /* For Tablets */
+        .col-s-1 {
+          width: 8.33%;
+        }
+        .col-s-2 {
+          width: 16.66%;
+        }
+        .col-s-3 {
+          width: 25%;
+        }
+        .col-s-4 {
+          width: 33.33%;
+        }
+        .col-s-5 {
+          width: 41.66%;
+        }
+        .col-s-6 {
+          width: 50%;
+        }
+        .col-s-7 {
+          width: 58.33%;
+        }
+        .col-s-8 {
+          width: 66.66%;
+        }
+        .col-s-9 {
+          width: 75%;
+        }
+        .col-s-10 {
+          width: 83.33%;
+        }
+        .col-s-11 {
+          width: 91.66%;
+        }
+        .col-s-12 {
+          width: 100%;
+        }
+      }
+
+      @media only screen and (min-width: 768px) {
+        /* For Desktop */
+        .col-1 {
+          width: 8.33%;
+        }
+        .col-2 {
+          width: 16.66%;
+        }
+        .col-3 {
+          width: 25%;
+        }
+        .col-4 {
+          width: 33.33%;
+        }
+        .col-5 {
+          width: 41.66%;
+        }
+        .col-6 {
+          width: 50%;
+        }
+        .col-7 {
+          width: 58.33%;
+        }
+        .col-8 {
+          width: 66.66%;
+        }
+        .col-9 {
+          width: 75%;
+        }
+        .col-10 {
+          width: 83.33%;
+        }
+        .col-11 {
+          width: 91.66%;
+        }
+        .col-12 {
+          width: 100%;
         }
       }
     </style>
@@ -73,7 +157,7 @@
     </div>
 
     <div class="row">
-      <div class="col">
+      <div class="col-3 col-s-3 manu">
         <ul>
           <li>The Flight</li>
           <li>The City</li>
@@ -81,7 +165,7 @@
           <li>The Food</li>
         </ul>
       </div>
-      <div class="col second">
+      <div class="col-6 col-s-9">
         <h2>The City</h2>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, sed
@@ -90,19 +174,21 @@
           vitae velit itaque omnis.
         </p>
       </div>
-      <div class="col third" style="background-color: #06c5f3">
-        <h2>What?</h2>
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, quo!
-        </p>
-        <h2>Where?</h2>
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, quo!
-        </p>
-        <h2>How?</h2>
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, quo!
-        </p>
+      <div class="col-3 col-s-12">
+        <div class="aside">
+          <h2>What?</h2>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, quo!
+          </p>
+          <h2>Where?</h2>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, quo!
+          </p>
+          <h2>How?</h2>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, quo!
+          </p>
+        </div>
       </div>
     </div>
     <div class="footer">
