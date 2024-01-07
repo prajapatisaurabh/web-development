@@ -1,17 +1,11 @@
-import viteLogo from "/vite.svg";
-import "./App.css";
+import { AppProvider } from "./provides/app";
+import { AppRoutes } from "./routes";
 
 const App = () => {
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <h2> Hello World</h2>
-    </>
+    <AppProvider>
+      <AppRoutes />
+    </AppProvider>
   );
 };
 
