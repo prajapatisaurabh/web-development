@@ -206,14 +206,14 @@ const MobileSidebar = ({ sidebarOpen, setSidebarOpen }: MobileSidebarProps) => {
 
 const Sidebar = () => {
   return (
-    <div className="hidden md:flex md:flex-shrink-0">
-      <div className="flex flex-col w-64">
-        <div className="flex flex-col h-0 flex-1">
-          <div className="flex items-center h-16 flex-shrink-0 px-4 bg-gray-900">
+    <div className="">
+      <div className="">
+        <div className="">
+          <div className="" style={{ width: "100px", height: "100px" }}>
             <Logo />
           </div>
           <div className="flex-1 flex flex-col overflow-y-auto">
-            <nav className="flex-1 px-2 py-4 bg-gray-800 space-y-1">
+            <nav className="" style={{ width: "100px", height: "100px" }}>
               <SideNavigation />
             </nav>
           </div>
@@ -225,11 +225,14 @@ const Sidebar = () => {
 
 const Logo = () => {
   return (
-    <Link className="flex items-center text-white" to=".">
-      <img className="h-8 w-auto" src={logo} alt="Workflow" />
-      <span className="text-xl text-white font-semibold">
-        Bulletproof React
-      </span>
+    <Link className="" to=".">
+      <img
+        className=""
+        style={{ width: "100px", height: "100px" }}
+        src={logo}
+        alt="Workflow"
+      />
+      <span className="">Bulletproof React</span>
     </Link>
   );
 };
