@@ -1,3 +1,14 @@
-export default function Register() {
-  return <div>Register</div>;
-}
+import { useNavigate } from "react-router-dom";
+
+import { Layout } from "../components/Layout";
+import { RegisterForm } from "../components/RegisterForm";
+
+export const Register = () => {
+  const navigate = useNavigate();
+
+  return (
+    <Layout title="Register your account">
+      <RegisterForm onSuccess={() => navigate("/auth/login")} />
+    </Layout>
+  );
+};

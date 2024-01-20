@@ -1,35 +1,26 @@
-import { Switch } from "@headlessui/react";
-import * as React from "react";
 import { Link } from "react-router-dom";
 import * as z from "zod";
 
 import { Button } from "@/components/Elements";
 import { Form, InputField, SelectField } from "@/components/Form";
-import { useTeams } from "@/features/teams";
 import { useRegister } from "@/lib/auth";
 
-const schema = z
-  .object({
-    email: z.string().min(1, "Required"),
-    firstName: z.string().min(1, "Required"),
-    lastName: z.string().min(1, "Required"),
-    password: z.string().min(1, "Required"),
-  })
-  .and(
-    z
-      .object({
-        teamId: z.string().min(1, "Required"),
-      })
-      .or(z.object({ teamName: z.string().min(1, "Required") }))
-  );
+const schema = z.object({
+  username: z.string().min(1, "Required"),
+  email: z.string().min(1, "Required"),
+  firstname: z.string().min(1, "Required"),
+  lastname: z.string().min(1, "Required"),
+  password: z.string().min(1, "Required"),
+  role: z.string().min(1, "Required"),
+});
 
 type RegisterValues = {
-  firstName: string;
-  lastName: string;
+  username: string;
+  firstname: string;
+  lastname: string;
   email: string;
   password: string;
-  teamId?: string;
-  teamName?: string;
+  role: string;
 };
 
 type RegisterFormProps = {
@@ -38,19 +29,29 @@ type RegisterFormProps = {
 
 export const RegisterForm = ({ onSuccess }: RegisterFormProps) => {
   const registerMutation = useRegister();
-  const [chooseTeam, setChooseTeam] = React.useState(false);
 
-  const teamsQuery = useTeams({
-    config: {
-      enabled: chooseTeam,
+  const option = [
+    {
+      label: "user",
+      value: "user",
     },
-  });
+
+    {
+      label: "moderate",
+      value: "moderate",
+    },
+    {
+      label: "admin",
+      value: "admin",
+    },
+  ];
 
   return (
     <div>
       <Form<RegisterValues, typeof schema>
         onSubmit={async (values) => {
           await registerMutation.mutate(values);
+          console.log("fail");
           onSuccess();
         }}
         schema={schema}
@@ -62,15 +63,21 @@ export const RegisterForm = ({ onSuccess }: RegisterFormProps) => {
           <>
             <InputField
               type="text"
+              label="Username"
+              error={formState.errors["username"]}
+              registration={register("username")}
+            />
+            <InputField
+              type="text"
               label="First Name"
-              error={formState.errors["firstName"]}
-              registration={register("firstName")}
+              error={formState.errors["firstname"]}
+              registration={register("firstname")}
             />
             <InputField
               type="text"
               label="Last Name"
-              error={formState.errors["lastName"]}
-              registration={register("lastName")}
+              error={formState.errors["lastname"]}
+              registration={register("lastname")}
             />
             <InputField
               type="email"
@@ -85,43 +92,21 @@ export const RegisterForm = ({ onSuccess }: RegisterFormProps) => {
               registration={register("password")}
             />
 
-            <Switch.Group>
-              <div className="flex items-center">
-                <Switch
-                  checked={chooseTeam}
-                  onChange={setChooseTeam}
-                  className={`${
-                    chooseTeam ? "bg-blue-600" : "bg-gray-200"
-                  } relative inline-flex items-center h-6 rounded-full w-11 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500`}
-                >
-                  <span
-                    className={`${
-                      chooseTeam ? "translate-x-6" : "translate-x-1"
-                    } inline-block w-4 h-4 transform bg-white rounded-full transition-transform`}
-                  />
-                </Switch>
-                <Switch.Label className="ml-4">Join Existing Team</Switch.Label>
-              </div>
-            </Switch.Group>
+            {/* <InputField
+              type="text"
+              label="role"
+              error={formState.errors["role"]}
+              registration={register("role")}
+            /> */}
 
-            {chooseTeam && teamsQuery.data ? (
-              <SelectField
-                label="Team"
-                error={formState.errors["teamId"]}
-                registration={register("teamId")}
-                options={teamsQuery?.data?.map((team) => ({
-                  label: team.name,
-                  value: team.id,
-                }))}
-              />
-            ) : (
-              <InputField
-                type="text"
-                label="Team Name"
-                error={formState.errors["teamName"]}
-                registration={register("teamName")}
-              />
-            )}
+            <SelectField
+              label="Role"
+              placeholder="Select role"
+              error={formState.errors["role"]}
+              registration={register("role")}
+              options={option}
+            ></SelectField>
+
             <div>
               <Button
                 isLoading={registerMutation.isLoading}
@@ -134,12 +119,9 @@ export const RegisterForm = ({ onSuccess }: RegisterFormProps) => {
           </>
         )}
       </Form>
-      <div className="mt-2 flex items-center justify-end">
-        <div className="text-sm">
-          <Link
-            to="../login"
-            className="font-medium text-blue-600 hover:text-blue-500"
-          >
+      <div className="">
+        <div className="">
+          <Link to="../login" className="">
             Log In
           </Link>
         </div>

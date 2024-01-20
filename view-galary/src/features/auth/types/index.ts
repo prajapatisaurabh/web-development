@@ -1,13 +1,8 @@
-export type AuthUser = {
+export type UserResponse = {
+  token: string;
   id: string;
   email: string;
-  firstName: string;
-  lastName: string;
-  bio: string;
-  role: "ADMIN" | "USER";
-};
-
-export type UserResponse = {
-  jwt: string;
-  user: AuthUser;
+  username: string;
+  type: string;
+  role: string[];
 };

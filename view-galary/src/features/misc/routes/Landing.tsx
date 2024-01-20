@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router";
 
-import logo from "@/assets/logo.svg";
+// import logo from "@/assets/logo.svg";
 import { Button } from "@/components/Elements";
 import { Head } from "@/components/Head";
 import { useUser } from "@/lib/auth";
@@ -19,16 +19,21 @@ export const Landing = () => {
 
   return (
     <>
-      <Head description="Welcome to bulletproof react" />
-      <div className="bg-white h-[100vh] flex items-center">
-        <div className="max-w-7xl mx-auto text-center py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
-          <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-            <span className="block">Bulletproof React</span>
+      <Head description="Welcome to thita info" />
+      <div className="">
+        <div className="">
+          <h2 className="">
+            <span className="">Thita info</span>
           </h2>
-          <img src={logo} alt="react" />
-          <p>Showcasing Best Practices For Building React Applications</p>
-          <div className="mt-8 flex justify-center">
-            <div className="inline-flex rounded-md shadow">
+          {/* <img src={logo} alt="react" /> */}
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat
+            exercitationem itaque nihil porro ullam quis tempora, molestiae qui
+            magnam aut iure nesciunt numquam accusantium enim ea laboriosam,
+            provident doloribus quaerat.
+          </p>
+          <div className="">
+            <div className="">
               <Button
                 onClick={handleStart}
                 startIcon={
@@ -51,9 +56,9 @@ export const Landing = () => {
                 Get started
               </Button>
             </div>
-            <div className="ml-3 inline-flex">
+            <div className="">
               <a
-                href="https://github.com/alan2207/bulletproof-react"
+                href="https://github.com/prajapatisaurabh/web-development"
                 target="_blank"
                 rel="noreferrer"
               >

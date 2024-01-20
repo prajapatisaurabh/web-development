@@ -6,12 +6,12 @@ import { Form, InputField } from "@/components/Form";
 import { useLogin } from "@/lib/auth";
 
 const schema = z.object({
-  email: z.string().min(1, "Required"),
+  username: z.string().min(1, "Required"),
   password: z.string().min(1, "Required"),
 });
 
 type LoginValues = {
-  email: string;
+  username: string;
   password: string;
 };
 
@@ -34,10 +34,10 @@ export const LoginForm = ({ onSuccess }: LoginFormProps) => {
         {({ register, formState }) => (
           <>
             <InputField
-              type="email"
-              label="Email Address"
-              error={formState.errors["email"]}
-              registration={register("email")}
+              type="text"
+              label="Username"
+              error={formState.errors["username"]}
+              registration={register("username")}
             />
             <InputField
               type="password"
